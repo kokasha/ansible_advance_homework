@@ -26,5 +26,5 @@ backend app-servers
     balance roundrobin
     option forwardfor
 {%  for app_server in groups['apps'] %}
-    server {{hostvars[app_server].inventory_hostname}} {{hostvars[app_server].ansible_host}}:{{app_port}} cookie {{hostvars[app_server].inventory_hostname}} check
+    server app{{loop.index}} {{hostvars[host]['inventory_hostname']}}:8080 cookie app{{loop.index}} check
 {%  endfor %}
