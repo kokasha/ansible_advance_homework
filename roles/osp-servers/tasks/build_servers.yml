@@ -8,7 +8,7 @@
     image: "{{ item.value.image }}"
     network: int_network
     security_groups: "{{ item.value.security_group }}"
-    key_name:  "{{ item.value.ssh_key }}"
+    key_name:  "{{ item.value.key_name }}"
     meta: "{{ item.value.meta }}"
     state: "{{ item.value.state }}"
     userdata: |
