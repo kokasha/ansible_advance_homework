@@ -9,7 +9,7 @@
     network: int_network
     security_groups: "{{ item.value.security_group }}"
     key_name:  "{{ item.value.key_name }}"
-    meta: "{{ item.value.meta }}"
+    meta: "{{ item.value.meta[0] }}"
     state: "{{ item.value.state }}"
     userdata: |
         #!/bin/bash
