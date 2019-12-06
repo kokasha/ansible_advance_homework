@@ -1,2 +1,22 @@
 ---
 # tasks file for db-tier
+- name: install All Required packages
+  package:
+    name: postgresql-server
+    state: latest
+
+- name: initilize postgres
+  command: 
+    cmd: postgresql-setup initdb
+    creates: /var/lib/pgsql/data/PG_VERSION
+
+- name: initilize postgres some more
+  command: 
+    cmd: chkconfig postgresql on
+    creates: /var/lib/pgsql/data/PG_VERSION
+
+- name: Start and Enable all Service
+  service:
+    name: postgresql
+    state: started
+    enabled: yes

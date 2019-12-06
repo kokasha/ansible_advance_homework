@@ -1,2 +1,27 @@
 ---
 # tasks file for app-tier
+- name: install All Required packages
+  package:
+    name: "{{ packages }}"
+    state: latest
+  notify: restart services
+
+- name: Start and Enable all Service
+  service:
+    name: "{{ item }}"
+    state: started
+    enabled: yes
+  loop: "{{ packages }}"
+  notify: restart services
+
+- name: create ansible tomcat directory
+  file:
+    path: "{{ tomcat_dir }}"
+    state: directory
+
+- name: copy static index.html to tomcat webapps/ansible/index.html
+  template:
+    src: index.html.j2
+    dest: "{{tomcat_dir}}/index.html"
+    mode: 0644
+  notify: restart services

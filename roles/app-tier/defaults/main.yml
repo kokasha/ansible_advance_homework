@@ -1,2 +1,9 @@
 ---
 # defaults file for app-tier
+tomcat_dir: /usr/share/tomcat/webapps/ROOT
+
+admin_email: k.okasha@gmail.com
+
+packages:
+  - tomcat
+  # - httpd
