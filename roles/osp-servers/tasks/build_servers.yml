@@ -24,7 +24,7 @@
     cloud: ospcloud
     server: "{{ item.key }}"
     network: ext_network
-    state: "{{ iitem.value.state }}"
+    state: "{{ item.value.state }}"
     reuse: yes
     wait: true
     timeout: 180
