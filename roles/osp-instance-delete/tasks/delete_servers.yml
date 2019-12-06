@@ -1,0 +1,23 @@
+---
+# tasks file for osp.servers
+- name:  Delete Server
+  os_server:
+    cloud: ospcloud
+    # flavor: "{{ item.value.flavor }}"
+    name: "{{ item.name }}"
+    # image: "{{ item.value.image }}"
+    network: int_network
+    # security_groups: "{{ item.value.security_group }}"
+    # key_name:  "{{ item.value.key_name }}"
+    # meta: "{{ item.value.meta[0] }}"
+    state: absent
+  tags: osp_instance
+
+- name: Delete Floating IP
+  os_floating_ip:
+    cloud: ospcloud
+    server: "{{ item.name }}"
+    network: ext_network
+    state: absent
+  register: instancefloatingip
+  tags: osp_instance 
