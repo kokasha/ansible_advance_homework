@@ -1,3 +1,4 @@
 ---
-- include_tasks: build_servers.yml
+- name: Build Servers
+  include_tasks: build_servers.yml
   with_dict: "{{ osp_servers }}"
