@@ -7,7 +7,7 @@
     register: result
 
   - debug: var=result
-  - debug: var=openstack_servers
+  - debug: var=openstack_servers[0].name
 
   - name: Build Servers
     include_tasks: delete_servers.yml
