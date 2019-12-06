@@ -1,4 +1,5 @@
 - hosts: workstation
   become: yes
   roles:
-    - osp-servers
+    - {name: osp-setup, tags: osp_setup}
+    - {name: osp-servers, tags: osp_servers}
