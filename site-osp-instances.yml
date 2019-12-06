@@ -2,4 +2,4 @@
   become: yes
   roles:
     - {name: osp-setup, tags: osp_setup}
-    - {name: osp-servers, tags: osp_servers}
+    # - {name: osp-servers, tags: osp_servers}
