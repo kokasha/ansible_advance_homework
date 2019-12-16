@@ -31,7 +31,10 @@
           export uri=https://labs.opentlc.com
         dest: /root/credential.rc
         mode: 0755
-
+    - command: env
+      register: output
+    - debug: var=output
+        
     # Fix the existing shell scripts to reference jq command with bin/jq
     - name: fix scripts
       shell: "sed -i 's/ jq/ bin\\/jq/g' {{ item }}"
