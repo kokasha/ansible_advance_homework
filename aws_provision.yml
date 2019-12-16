@@ -34,8 +34,8 @@
 
     - shell:  | 
         source /root/credential.rc
-        . common.sh
-         env
+        source  /root/common.sh
+        env
       register: output
     - debug: var=output
         
