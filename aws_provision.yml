@@ -35,6 +35,7 @@
     - shell:  | 
         source /root/credential.rc
         source  /root/common.sh
+        get_token
         env
       register: output
     - debug: var=output
