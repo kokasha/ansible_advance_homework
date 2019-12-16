@@ -31,6 +31,7 @@
           export uri=https://labs.opentlc.com
         dest: /root/credential.rc
         mode: 0755
+    - shell: source /root/credential.rc 
     - command: env
       register: output
     - debug: var=output
