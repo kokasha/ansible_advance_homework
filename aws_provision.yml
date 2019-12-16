@@ -37,6 +37,8 @@
         source  /root/common.sh
         get_token
         env
+      args:
+        chdir: /root
       register: output
     - debug: var=output
         
