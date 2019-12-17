@@ -11,4 +11,9 @@
 
   - debug: var=smoke_test
 
-  # - name: Fail if 'Ansible has done its job' is not in the page content
+
+  - name: Fail if 'Ansible has done its job' is not in the page content
+    fail:
+    when: "'Ansible has done its job' not in smoke_test.content"
+    tags:
+      - osp.smoke
