@@ -2,4 +2,13 @@
   gather_facts: false
   tasks:
   - name: Use Uri module for wrting smoke test.
-  - name: Fail if 'Ansible has done its job' is not in the page content
+    uri:
+      url: "http://{{ ansible_host }}"
+      method: GET
+      status_code: [201,200]
+      return_content: yes
+    register: smoke_test
+
+  - debug: var=smoke_test
+
+  # - name: Fail if 'Ansible has done its job' is not in the page content
